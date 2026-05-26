@@ -7,34 +7,95 @@
   <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <span class="logo">WriteMate</span>
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">
+      <div class="brand-icon">W</div>
+      <span class="brand-name">WriteMate</span>
+      <span class="version">v1.0</span>
+    </div>
+    <div class="status">
       <span class="status-dot" id="statusDot"></span>
+      <span class="status-label" id="statusLabel">Connecting…</span>
     </div>
-
-    <p class="subtitle">Select text on any page, then right-click to rephrase.</p>
-
-    <div class="section-label">Quick Rephrase</div>
-    <textarea id="inputText" placeholder="Or paste text here..." rows="4"></textarea>
-
-    <div class="mode-grid">
-      <button class="mode-btn active" data-mode="professional">Professional</button>
-      <button class="mode-btn" data-mode="casual">Casual</button>
-      <button class="mode-btn" data-mode="bullet_points">Bullet Points</button>
-      <button class="mode-btn" data-mode="concise">Concise</button>
-    </div>
-
-    <button class="rephrase-btn" id="rephraseBtn">Rephrase</button>
-
-    <div class="result-box hidden" id="resultBox">
-      <div class="result-meta" id="resultMeta"></div>
-      <div class="result-text" id="resultText"></div>
-      <button class="copy-btn" id="copyBtn">Copy</button>
-    </div>
-
-    <div class="error-box hidden" id="errorBox"></div>
   </div>
+
+  <!-- Inline Suggest toggle -->
+  <div class="inline-row">
+    <div class="inline-info">
+      <span class="inline-title">Inline Suggestions</span>
+      <span class="inline-sub">Auto-suggest as you type</span>
+    </div>
+    <label class="toggle">
+      <input type="checkbox" id="inlineToggle" />
+      <span class="toggle-track"><span class="toggle-thumb"></span></span>
+    </label>
+  </div>
+
+  <!-- Inline mode selector (shown only when toggle is on) -->
+  <div class="inline-mode-row" id="inlineModeRow">
+    <span class="inline-mode-label">Suggestion tone</span>
+    <div class="inline-mode-btns">
+      <button class="imode-btn active" data-imode="professional">Professional</button>
+      <button class="imode-btn" data-imode="casual">Casual</button>
+      <button class="imode-btn" data-imode="concise">Concise</button>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="divider"><span>quick rephrase</span></div>
+
+  <!-- Input -->
+  <div class="input-wrap">
+    <textarea id="inputText" placeholder="Paste your text…" rows="4" maxlength="3000"></textarea>
+    <div class="char-count"><span id="charCount">0</span> / 3000</div>
+  </div>
+
+  <!-- Mode selector -->
+  <div class="mode-label">Tone</div>
+  <div class="mode-grid">
+    <button class="mode-btn active" data-mode="professional">
+      <span class="mode-icon">💼</span> Professional
+    </button>
+    <button class="mode-btn" data-mode="casual">
+      <span class="mode-icon">💬</span> Casual
+    </button>
+    <button class="mode-btn" data-mode="bullet_points">
+      <span class="mode-icon">📋</span> Bullets
+    </button>
+    <button class="mode-btn" data-mode="concise">
+      <span class="mode-icon">✂️</span> Concise
+    </button>
+  </div>
+  <div class="grammar-row">
+    <button class="grammar-btn" data-mode="grammar">
+      <span class="mode-icon">🔤</span> Fix Grammar &amp; Spelling
+    </button>
+  </div>
+
+  <button class="rephrase-btn" id="rephraseBtn">
+    <span id="btnText">Rephrase</span>
+    <span class="btn-shortcut">⌘↵</span>
+  </button>
+
+  <!-- Result -->
+  <div class="result-box hidden" id="resultBox">
+    <div class="result-header">
+      <span class="result-meta" id="resultMeta"></span>
+      <button class="copy-btn" id="copyBtn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span id="copyLabel">Copy</span>
+      </button>
+    </div>
+    <div class="result-text" id="resultText"></div>
+  </div>
+
+  <!-- Error -->
+  <div class="error-box hidden" id="errorBox">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span id="errorMsg"></span>
+  </div>
+
   <script src="popup.js"></script>
 </body>
 </html>

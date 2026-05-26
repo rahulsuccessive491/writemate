@@ -30,6 +30,10 @@
     "concise": {
       "max_length": 200,
       "tone_keywords": ["brief", "tight", "no filler"]
+    },
+    "grammar": {
+      "max_length": 2000,
+      "tone_keywords": ["correct", "clean", "original tone preserved"]
     }
   },
   "few_shot_examples": [

@@ -1,10 +1,11 @@
 const API_BASE = "http://localhost:8000";
-const MODES = ["professional", "casual", "bullet_points", "concise"];
+const MODES = ["professional", "casual", "bullet_points", "concise", "grammar"];
 const MODE_LABELS = {
   professional: "Professional",
   casual: "Casual",
   bullet_points: "Bullet Points",
   concise: "Concise",
+  grammar: "Fix Grammar & Spelling",
 };
 
 chrome.runtime.onInstalled.addListener(() => {
