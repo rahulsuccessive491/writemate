@@ -1,4 +1,5 @@
-const API_BASE = "http://localhost:8000";
+// TODO: Replace with your Railway URL after deploy (e.g. https://writemate-api.up.railway.app)
+const API_BASE = "https://YOUR_RAILWAY_URL.up.railway.app";
 const MODES = ["professional", "casual", "bullet_points", "concise", "grammar"];
 const MODE_LABELS = {
   professional: "Professional",

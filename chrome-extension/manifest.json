@@ -11,6 +11,7 @@
   ],
   "host_permissions": [
     "http://localhost:8000/*",
+    "https://*.up.railway.app/*",
     "<all_urls>"
   ],
   "background": {
