@@ -30,6 +30,13 @@ _MODE_INSTRUCTIONS = {
         "Rewrite the text using as few words as possible without losing meaning. "
         "Cut all filler, redundancy, and weak phrasing. Every word must earn its place."
     ),
+    "grammar": (
+        "You are a precise grammar and spelling editor. "
+        "Fix ONLY grammar mistakes, spelling errors, punctuation issues, and subject-verb agreement. "
+        "Do NOT change the tone, style, vocabulary choice, or meaning of the text. "
+        "Keep the author's original voice completely intact. "
+        "If the text is already correct, return it unchanged."
+    ),
 }
 
 

@@ -272,6 +272,43 @@ textarea:focus { border-color: rgba(99,102,241,0.5); }
   line-height: 1;
 }
 
+/* ── Grammar row ── */
+.grammar-row {
+  padding: 0 16px;
+  margin-bottom: 12px;
+}
+
+.grammar-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 9px;
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.grammar-btn:hover {
+  border-color: rgba(34,197,94,0.4);
+  color: rgba(255,255,255,0.85);
+  background: rgba(34,197,94,0.08);
+}
+
+.grammar-btn.active {
+  background: rgba(34,197,94,0.12);
+  border-color: rgba(34,197,94,0.5);
+  color: #86efac;
+  font-weight: 600;
+}
+
 /* ── Rephrase button ── */
 .rephrase-btn {
   width: calc(100% - 32px);

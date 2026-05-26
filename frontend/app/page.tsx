@@ -5,6 +5,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Demo from "@/components/Demo";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import FeedbackWidget from "@/components/FeedbackWidget";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Demo />
       <CTA />
       <Footer />
+      <FeedbackWidget />
     </main>
   );
 }

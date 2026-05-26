@@ -67,10 +67,22 @@ async function checkHealth() {
 /* ── Char counter ── */
 inputEl.addEventListener("input", () => { charCount.textContent = inputEl.value.length; });
 
-/* ── Mode selection ── */
+/* ── Mode selection (tone buttons + grammar button) ── */
+function clearAllModeActive() {
+  document.querySelectorAll(".mode-btn, .grammar-btn").forEach((b) => b.classList.remove("active"));
+}
+
 document.querySelectorAll(".mode-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
-    document.querySelectorAll(".mode-btn").forEach((b) => b.classList.remove("active"));
+    clearAllModeActive();
+    btn.classList.add("active");
+    selectedMode = btn.dataset.mode;
+  });
+});
+
+document.querySelectorAll(".grammar-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    clearAllModeActive();
     btn.classList.add("active");
     selectedMode = btn.dataset.mode;
   });
