@@ -1,0 +1,51 @@
+{
+  "preserve_terms": [
+    "SLA", "KPI", "OKR", "ROI", "API", "SDK", "UI", "UX",
+    "MVP", "B2B", "B2C", "Q1", "Q2", "Q3", "Q4", "PR", "CRM",
+    "ETL", "CI/CD", "DevOps", "ML", "AI", "LLM"
+  ],
+  "avoid_phrases": [
+    "In conclusion",
+    "It is worth noting",
+    "As mentioned above",
+    "Needless to say",
+    "At the end of the day",
+    "Going forward",
+    "It goes without saying"
+  ],
+  "mode_constraints": {
+    "professional": {
+      "max_length": 500,
+      "tone_keywords": ["concise", "formal", "direct", "polished"]
+    },
+    "casual": {
+      "max_length": 400,
+      "tone_keywords": ["friendly", "relaxed", "conversational", "clear"]
+    },
+    "bullet_points": {
+      "max_bullets": 6,
+      "min_bullets": 2,
+      "tone_keywords": ["structured", "actionable", "scannable"]
+    },
+    "concise": {
+      "max_length": 200,
+      "tone_keywords": ["brief", "tight", "no filler"]
+    }
+  },
+  "few_shot_examples": [
+    {
+      "raw": "hey so i was thinking we should maybe look into fixing the bug that john mentioned last week because its causing some issues with the api calls and clients are starting to notice",
+      "professional": "The API defect raised last week is now customer-visible. I recommend prioritizing a fix in the current sprint to prevent further escalation.",
+      "casual": "Hey, that bug John flagged last week is starting to affect clients. Worth bumping it up the priority list soon.",
+      "bullet_points": "- API bug flagged last week is now customer-visible\n- Clients are beginning to notice the impact\n- Recommend prioritizing fix in current sprint",
+      "concise": "The API bug from last week is now affecting clients — needs urgent prioritization."
+    },
+    {
+      "raw": "the meeting went well and we talked about the roadmap and everyone seemed to be on the same page about the q3 goals and the new feature we want to ship",
+      "professional": "The roadmap review meeting concluded successfully. All stakeholders are aligned on Q3 objectives and the planned feature release.",
+      "casual": "Good meeting — everyone's on the same page about Q3 goals and the new feature we're shipping.",
+      "bullet_points": "- Roadmap meeting completed successfully\n- Team aligned on Q3 goals\n- New feature release confirmed for Q3",
+      "concise": "Team aligned on Q3 goals and upcoming feature release after today's roadmap meeting."
+    }
+  ]
+}

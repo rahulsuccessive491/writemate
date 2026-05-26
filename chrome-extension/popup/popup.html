@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WriteMate</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="logo">WriteMate</span>
+      <span class="status-dot" id="statusDot"></span>
+    </div>
+
+    <p class="subtitle">Select text on any page, then right-click to rephrase.</p>
+
+    <div class="section-label">Quick Rephrase</div>
+    <textarea id="inputText" placeholder="Or paste text here..." rows="4"></textarea>
+
+    <div class="mode-grid">
+      <button class="mode-btn active" data-mode="professional">Professional</button>
+      <button class="mode-btn" data-mode="casual">Casual</button>
+      <button class="mode-btn" data-mode="bullet_points">Bullet Points</button>
+      <button class="mode-btn" data-mode="concise">Concise</button>
+    </div>
+
+    <button class="rephrase-btn" id="rephraseBtn">Rephrase</button>
+
+    <div class="result-box hidden" id="resultBox">
+      <div class="result-meta" id="resultMeta"></div>
+      <div class="result-text" id="resultText"></div>
+      <button class="copy-btn" id="copyBtn">Copy</button>
+    </div>
+
+    <div class="error-box hidden" id="errorBox"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
