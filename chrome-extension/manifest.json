@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "WriteMate",
   "version": "1.0.0",
-  "description": "Rephrase selected text using an AI agent — professional, casual, bullet points, or concise.",
+  "description": "Rephrase any selected text instantly — professional, casual, bullet points, or concise. Powered by AI.",
   "permissions": [
     "contextMenus",
     "activeTab",
@@ -19,6 +19,9 @@
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
       "128": "icons/icon-128.png"
     }
   },
@@ -29,6 +32,9 @@
     }
   ],
   "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
   }
 }
