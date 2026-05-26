@@ -14,20 +14,36 @@
       <span class="brand-name">WriteMate</span>
       <span class="version">v1.0</span>
     </div>
-    <div class="status" id="status">
+    <div class="status">
       <span class="status-dot" id="statusDot"></span>
       <span class="status-label" id="statusLabel">Connecting…</span>
     </div>
   </div>
 
-  <!-- Hint -->
-  <div class="hint">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>
-    Select text on any page and right-click to rephrase
+  <!-- Inline Suggest toggle -->
+  <div class="inline-row">
+    <div class="inline-info">
+      <span class="inline-title">Inline Suggestions</span>
+      <span class="inline-sub">Auto-suggest as you type</span>
+    </div>
+    <label class="toggle">
+      <input type="checkbox" id="inlineToggle" />
+      <span class="toggle-track"><span class="toggle-thumb"></span></span>
+    </label>
+  </div>
+
+  <!-- Inline mode selector (shown only when toggle is on) -->
+  <div class="inline-mode-row" id="inlineModeRow">
+    <span class="inline-mode-label">Suggestion tone</span>
+    <div class="inline-mode-btns">
+      <button class="imode-btn active" data-imode="professional">Professional</button>
+      <button class="imode-btn" data-imode="casual">Casual</button>
+      <button class="imode-btn" data-imode="concise">Concise</button>
+    </div>
   </div>
 
   <!-- Divider -->
-  <div class="divider"><span>or rephrase here</span></div>
+  <div class="divider"><span>quick rephrase</span></div>
 
   <!-- Input -->
   <div class="input-wrap">
@@ -52,10 +68,9 @@
     </button>
   </div>
 
-  <!-- Action -->
   <button class="rephrase-btn" id="rephraseBtn">
     <span id="btnText">Rephrase</span>
-    <span class="btn-shortcut">↵</span>
+    <span class="btn-shortcut">⌘↵</span>
   </button>
 
   <!-- Result -->

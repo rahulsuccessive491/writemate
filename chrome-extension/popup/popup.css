@@ -78,6 +78,74 @@ body {
   color: rgba(255,255,255,0.35);
 }
 
+/* ── Inline Suggest row ── */
+.inline-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(99,102,241,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.inline-info { display: flex; flex-direction: column; gap: 2px; }
+.inline-title { font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.85); }
+.inline-sub   { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+/* Toggle switch */
+.toggle { position: relative; display: inline-flex; align-items: center; cursor: pointer; }
+.toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.toggle-track {
+  width: 36px; height: 20px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s, border-color 0.2s;
+}
+.toggle input:checked ~ .toggle-track {
+  background: #6366f1;
+  border-color: #6366f1;
+}
+.toggle-thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 14px; height: 14px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  transition: transform 0.2s, background 0.2s;
+}
+.toggle input:checked ~ .toggle-track .toggle-thumb {
+  transform: translateX(16px);
+  background: #fff;
+}
+
+/* Inline mode row */
+.inline-mode-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: rgba(99,102,241,0.04);
+}
+.inline-mode-row.hidden { display: none; }
+.inline-mode-label { font-size: 11px; color: rgba(255,255,255,0.35); }
+.inline-mode-btns { display: flex; gap: 4px; }
+.imode-btn {
+  padding: 4px 9px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  color: rgba(255,255,255,0.4);
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.imode-btn:hover { border-color: rgba(99,102,241,0.4); color: rgba(255,255,255,0.7); }
+.imode-btn.active { background: rgba(99,102,241,0.2); border-color: rgba(99,102,241,0.5); color: #a5b4fc; font-weight: 600; }
+
 /* ── Hint ── */
 .hint {
   display: flex;
