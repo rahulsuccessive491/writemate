@@ -7,9 +7,18 @@ from config import AVAILABLE_MODES, MODEL
 
 app = FastAPI(title="AI Rephraser Agent", version="1.0.0")
 
+ALLOWED_ORIGINS = [
+    "https://writemate.vercel.app",
+    "https://write-mate.vercel.app",
+    "http://localhost:3000",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Chrome extension origins are dynamic; lock down in production
+    # Chrome extensions send chrome-extension:// origins which don't match patterns;
+    # allow_origin_regex covers them alongside known web origins.
+    allow_origins=ALLOWED_ORIGINS,
+    allow_origin_regex=r"chrome-extension://.*",
     allow_methods=["POST", "GET"],
     allow_headers=["*"],
 )
