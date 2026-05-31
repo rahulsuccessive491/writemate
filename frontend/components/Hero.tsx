@@ -34,8 +34,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              id="install"
-              href="#"
+              href="/install"
               className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3.5 rounded-xl transition-all hover:scale-105"
             >
               <Globe size={18} />

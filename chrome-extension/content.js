@@ -1,6 +1,5 @@
 /* ─── WriteMate content script ─────────────────────────────────────────── */
-// TODO: Replace with your Railway URL after deploy (e.g. https://writemate-api.up.railway.app)
-const API_BASE    = "https://YOUR_RAILWAY_URL.up.railway.app";
+const API_BASE    = "https://writemate-production.up.railway.app";
 const DEBOUNCE_MS = 1200;
 const MIN_CHARS   = 20;
 const CARD_ID     = "wm-suggestion-card";
