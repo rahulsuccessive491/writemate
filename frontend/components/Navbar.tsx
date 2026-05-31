@@ -12,12 +12,13 @@ export default function Navbar() {
           <span className="font-semibold text-white text-sm">WriteMate</span>
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm text-white/50">
-          <a href="#features" className="hover:text-white transition-colors">Features</a>
-          <a href="#how-it-works" className="hover:text-white transition-colors">How it works</a>
-          <a href="#demo" className="hover:text-white transition-colors">Demo</a>
+          <a href="/#features" className="hover:text-white transition-colors">Features</a>
+          <a href="/#how-it-works" className="hover:text-white transition-colors">How it works</a>
+          <a href="/#demo" className="hover:text-white transition-colors">Demo</a>
+          <a href="/install" className="hover:text-white transition-colors">Install</a>
         </div>
         <a
-          href="#install"
+          href="/install"
           className="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
         >
           Add to Chrome
