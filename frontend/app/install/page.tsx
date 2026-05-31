@@ -9,14 +9,13 @@ import {
   CheckCircle2,
   Zap,
   ExternalLink,
-  Github,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const steps = [
   {
-    icon: Github,
+    icon: Download,
     step: "01",
     title: "Download the extension",
     description:
