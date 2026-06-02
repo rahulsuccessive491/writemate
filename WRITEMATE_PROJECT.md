@@ -215,6 +215,47 @@ AI Repharaser/
 
 ---
 
+## Cost Analysis
+
+### Current Monthly Cost: $0
+
+| Service | Plan | Cost |
+|---------|------|------|
+| Groq API | Free tier | $0 |
+| Railway | Free tier | $0 |
+| Vercel | Hobby tier | $0 |
+
+### LLM Provider Comparison
+
+WriteMate makes 2 API calls per rephrase (Generator + Critic). Cost per 1,000 rephrases (~1,200 input tokens + ~200 output tokens each):
+
+| Provider | Model | Input /1M | Output /1M | Per 1K rephrases | Speed |
+|----------|-------|-----------|-----------|-----------------|-------|
+| **Groq** *(current)* | LLaMA 3.1 8B Instant | $0.05 | $0.08 | ~$0.09 | ~750 tok/s |
+| **Mistral AI** | Mistral Nemo | $0.02 | $0.06 | ~$0.04 | Fast |
+| **Together AI** | LLaMA 3.1 8B | $0.18 | $0.10 | ~$0.25 | Fast |
+| **OpenAI** | GPT-4o mini | $0.15 | $0.60 | ~$0.33 | Standard |
+| **OpenAI** | GPT-4o | $2.50 | $10.00 | ~$5.50 | Standard |
+| **Anthropic** | Claude Haiku 4.5 | $1.00 | $5.00 | ~$2.40 | Fast |
+| **Anthropic** | Claude Sonnet 4.6 | $3.00 | $15.00 | ~$7.20 | Standard |
+
+### One-Time Costs
+
+| Item | Cost |
+|------|------|
+| Chrome Web Store developer registration | $5 (one-time, covers all extensions) |
+
+### Monthly Cost at Scale
+
+| Scale | Groq | Railway | Vercel | Total/month |
+|-------|------|---------|--------|-------------|
+| Team testing | $0 | $0 | $0 | **$0** |
+| 10K rephrases | ~$0.90 | $5 | $0 | **~$6** |
+| 100K rephrases | ~$9 | $5 | $0 | **~$14** |
+| 1M rephrases | ~$90 | $5–20 | $20 | **~$115–135** |
+
+---
+
 ## Git Branch Strategy
 
 | Branch | Purpose |

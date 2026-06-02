@@ -99,13 +99,70 @@ Full step-by-step guide: https://write-mate-ai.vercel.app/install
 
 ---
 
+## Cost & Infrastructure
+
+### Current State — Running at $0/month
+
+Everything WriteMate runs on today is free:
+
+| Service | Plan | Cost |
+|---------|------|------|
+| Groq API (LLaMA 3.1 8B) | Free tier | $0 |
+| Railway (backend hosting) | Free tier | $0 |
+| Vercel (frontend hosting) | Hobby tier | $0 |
+| **Total** | | **$0/month** |
+
+---
+
+### LLM Provider Comparison
+
+WriteMate makes **2 API calls per rephrase** (Generator + Critic). Here's what that costs across providers at scale:
+
+| Provider | Model | Price / 1M input | Price / 1M output | Cost per 1K rephrases | Speed |
+|----------|-------|-----------------|------------------|-----------------------|-------|
+| **Groq** *(current)* | LLaMA 3.1 8B Instant | $0.05 | $0.08 | **~$0.09** | ~750 tok/s — fastest |
+| **Mistral AI** | Mistral Nemo | $0.02 | $0.06 | **~$0.04** | Fast |
+| **Together AI** | LLaMA 3.1 8B | $0.18 | $0.10 | **~$0.25** | Fast |
+| **OpenAI** | GPT-4o mini | $0.15 | $0.60 | **~$0.33** | Standard |
+| **OpenAI** | GPT-4o | $2.50 | $10.00 | **~$5.50** | Standard |
+| **Anthropic** | Claude Haiku 4.5 | $1.00 | $5.00 | **~$2.40** | Fast |
+| **Anthropic** | Claude Sonnet 4.6 | $3.00 | $15.00 | **~$7.20** | Standard |
+
+> Cost estimate based on ~1,200 input tokens + ~200 output tokens per rephrase (system prompt + user text + Gen + Critic combined).
+
+**Takeaway:** Groq is the right choice — fastest response (in-browser UX needs <300ms) and near-zero cost. Even at 100,000 rephrases/month, the bill is ~$9. Mistral Nemo is cheaper but slower and lower quality for structured rewrites.
+
+---
+
+### One-Time & Scaling Costs
+
+| Item | Cost | Notes |
+|------|------|-------|
+| Chrome Web Store registration | **$5 one-time** | Covers unlimited extensions forever |
+| Chrome Web Store (unlisted, team testing) | **$5 one-time** | Same fee, install with one click |
+| Railway (when free tier runs out) | **$5/month** | Hobby plan, includes $5 usage credit |
+| Vercel Pro (if needed) | **$20/month** | Only needed for team/commercial use |
+| Groq paid (at 10K rephrases/month) | **~$0.90/month** | Essentially negligible |
+| Groq paid (at 100K rephrases/month) | **~$9/month** | Still extremely cheap at scale |
+
+### Total Estimated Monthly Cost (Scaled)
+
+| Scale | LLM (Groq) | Railway | Vercel | Total |
+|-------|-----------|---------|--------|-------|
+| Today (team testing) | $0 | $0 | $0 | **$0** |
+| 10K rephrases/month | ~$0.90 | $5 | $0 | **~$6** |
+| 100K rephrases/month | ~$9 | $5 | $0 | **~$14** |
+| 1M rephrases/month | ~$90 | $5–20 | $20 | **~$115–135** |
+
+---
+
 ## What's Coming Next
 
 - Keyboard shortcut (Cmd+Shift+R) to trigger rephrase on selection
 - Rephrase history panel
 - More modes: Academic, Marketing, Tweet-sized
 - Multi-language support
-- Chrome Web Store listing (unlisted for team testing → public)
+- Chrome Web Store listing (unlisted for team testing → public, $5 one-time)
 
 ---
 
