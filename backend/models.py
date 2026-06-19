@@ -47,3 +47,28 @@ class HealthResponse(BaseModel):
 
 class ModesResponse(BaseModel):
     modes: list[str]
+
+
+class AnalyzeRequest(BaseModel):
+    text: str
+
+    @field_validator("text")
+    @classmethod
+    def text_must_not_be_empty(cls, v: str) -> str:
+        v = v.strip()
+        if not v:
+            raise ValueError("text cannot be empty")
+        if len(v) > 3000:
+            raise ValueError("text exceeds maximum length of 3000 characters")
+        return v
+
+
+class AnalyzeSuggestion(BaseModel):
+    type: str
+    original: str
+    alternatives: list[str]
+    explanation: str
+
+
+class AnalyzeResponse(BaseModel):
+    suggestions: list[AnalyzeSuggestion]

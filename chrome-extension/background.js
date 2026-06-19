@@ -39,6 +39,46 @@ async function safeSendMessage(tabId, message) {
   }
 }
 
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  // Keepalive ping sent every 20s by content.js while a fetch is in-flight
+  // to prevent Chrome from terminating the service worker mid-request (MV3).
+  if (msg.type === "KEEPALIVE") { sendResponse({ ok: true }); return false; }
+
+  if (msg.type === "INLINE_REPHRASE") {
+    fetch(`${API_BASE}/api/rephrase`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: msg.text, mode: msg.mode }),
+      signal: AbortSignal.timeout(30000),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(`Server error ${res.status}`);
+        return res.json();
+      })
+      .then((data) => sendResponse({ result: data.result }))
+      .catch((err) => sendResponse({ error: err.message || "network error" }));
+    return true;
+  }
+
+  if (msg.type === "ANALYZE_TEXT") {
+    fetch(`${API_BASE}/api/analyze`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: msg.text }),
+      signal: AbortSignal.timeout(30000),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(`Server error ${res.status}`);
+        return res.json();
+      })
+      .then((data) => sendResponse({ suggestions: data.suggestions || [] }))
+      .catch((err) => sendResponse({ error: err.message || "network error" }));
+    return true;
+  }
+
+  return false;
+});
+
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   const modeMatch = info.menuItemId.match(/^rephrase-(.+)$/);
   if (!modeMatch) return;
