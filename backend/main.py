@@ -2,7 +2,12 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 import agent
-from models import RephraseRequest, RephraseResponse, HealthResponse, ModesResponse, CriticEntry
+import analyzer
+from models import (
+    RephraseRequest, RephraseResponse,
+    HealthResponse, ModesResponse, CriticEntry,
+    AnalyzeRequest, AnalyzeResponse, AnalyzeSuggestion,
+)
 from config import AVAILABLE_MODES, MODEL
 
 app = FastAPI(title="AI Rephraser Agent", version="1.0.0")
@@ -45,5 +50,15 @@ def rephrase(payload: RephraseRequest):
             status=result["status"],
             critic_history=[CriticEntry(**entry) for entry in result["critic_history"]],
         )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/analyze", response_model=AnalyzeResponse)
+def analyze_endpoint(payload: AnalyzeRequest):
+    try:
+        raw = analyzer.analyze(payload.text)
+        suggestions = [AnalyzeSuggestion(**s) for s in raw if isinstance(s, dict)]
+        return AnalyzeResponse(suggestions=suggestions)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from rephraser import generate
 from critic import critique
 from config import MAX_CRITIC_ITERATIONS, SKIP_CRITIC
