@@ -1,4 +1,4 @@
-const API_BASE = "https://writemate-production.up.railway.app";
+const API_BASE = "https://writemate-production-eed1.up.railway.app";
 const MODES = ["professional", "casual", "bullet_points", "concise", "grammar"];
 const MODE_LABELS = {
   professional: "Professional",
