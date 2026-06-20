@@ -10,7 +10,7 @@ from models import (
 )
 from config import AVAILABLE_MODES, MODEL
 
-app = FastAPI(title="AI Rephraser Agent", version="1.0.0")
+app = FastAPI(title="AI Rephraser Agent", version="1.1.0")
 
 ALLOWED_ORIGINS = [
     "https://writemate.vercel.app",
